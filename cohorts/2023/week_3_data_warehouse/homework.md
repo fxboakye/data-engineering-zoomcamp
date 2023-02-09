@@ -12,9 +12,22 @@ Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/t
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
 - 65,623,481
-[x] 43,244,696
+* [x] 43,244,696
 - 22,978,333
 - 13,942,414
+
+```sql
+-- Creating External table
+CREATE EXTERNAL TABLE IF NOT EXISTS flv.flvdata
+OPTIONS (
+  FORMAT= 'parquet',
+  URIS=['gs://data-en/data/fhv/*.parquet']);
+  
+-- Querying rows count
+SELECT COUNT(pickup_datetime) FROM flv.flvdata ;
+
+```
+ 
 
 ## Question 2:
 Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables.</br> 
@@ -23,7 +36,11 @@ What is the estimated amount of data that will be read when this query is execut
 - 25.2 MB for the External Table and 100.87MB for the BQ Table
 - 225.82 MB for the External Table and 47.60MB for the BQ Table
 - 0 MB for the External Table and 0MB for the BQ Table
-- 0 MB for the External Table and 317.94MB for the BQ Table 
+* [x] 0 MB for the External Table and 317.94MB for the BQ Table 
+
+```sql
+SELECT DISTINCT COUNT(affiliated_base_number) FROM flv.flvdata
+```
 
 
 ## Question 3:
