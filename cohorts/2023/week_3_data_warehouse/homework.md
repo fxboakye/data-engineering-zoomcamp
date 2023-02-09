@@ -12,7 +12,7 @@ Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/t
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
 - 65,623,481
-- 43,244,696
+[x] 43,244,696
 - 22,978,333
 - 13,942,414
 
